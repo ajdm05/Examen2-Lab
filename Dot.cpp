@@ -21,7 +21,7 @@ Dot::Dot(SDL_Surface *screen)
     angle = -45;
     velocity = 5;
     this->isMove = false;
-    this->life = 3;
+    this->life = 5;
 
 
     //Initialize particles
@@ -97,8 +97,8 @@ void Dot::move()
         angle=-angle;
     }
 
-    //if( this->y > 575)
-    //    this->life--;
+    if( this->y > 579)
+        this->life--;
 
 }
 
