@@ -14,10 +14,11 @@ Menu::Menu(SDL_Surface *screen)
 {
     this->screen = screen;
     this->image[0] = IMG_Load( "Menu.png" );
-    this->image[1] = IMG_Load( "Select.png" );
-    this->image[2] = IMG_Load( "Fondo.png" );
+    this->image[1] = IMG_Load( "game-over.png" );
+    this->image[2] = IMG_Load( "Info.png" );
     this->x = 0;
     this->numPantalla = 0;
+    this->active = true;
 }
 
 void Menu::render()
@@ -26,16 +27,7 @@ void Menu::render()
 
     if (this->getNumPantalla() == 0){
 
-        x = -1000;
-        if(x<-image[0]->w)
-        x=0;
-        offset.x = x;
-        offset.y = 0;
-
-
-        SDL_BlitSurface( image[0], NULL, screen, &offset );
-
-        offset.x = x+image[0]->w;
+        offset.x = 0;
         offset.y = 0;
 
         SDL_BlitSurface( image[0], NULL, screen, &offset );
@@ -43,15 +35,10 @@ void Menu::render()
 
     if (this->getNumPantalla() == 1)
     {
-        x = -1000;
-        if(x<-image[1]->w)
-            x=0;
-        offset.x = x;
-        offset.y = 0;
 
         SDL_BlitSurface( image[1], NULL, screen, &offset );
 
-        offset.x = x+image[1]->w;
+        offset.x = 0;
         offset.y = 0;
 
         SDL_BlitSurface( image[1], NULL, screen, &offset );
@@ -59,15 +46,9 @@ void Menu::render()
     }
     if (this->getNumPantalla() == 2)
     {
-        x = -1000;
-        if(x<-image[2]->w)
-            x=0;
-        offset.x = x;
-        offset.y = 0;
-
         SDL_BlitSurface( image[2], NULL, screen, &offset );
 
-        offset.x = x+image[2]->w;
+        offset.x = 0;
         offset.y = 0;
 
         SDL_BlitSurface( image[2], NULL, screen, &offset );
@@ -80,24 +61,12 @@ void Menu::setNumPantalla(int p)
     this->numPantalla = p;
 }
 
-int Menu::getNumPantalla()
+bool Menu::getActive()
 {
-
-    return this->numPantalla;
+    return this->active;
 }
 
-
-/*bool Background::init()
+int Menu::getNumPantalla()
 {
-    //Initialize SDL_mixer
-    if( Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) == -1 )
-    {
-        return false;
-    }
-
-    //Initialize SDL_ttf
-    if( TTF_Init() == -1 )
-    {
-        return false;
-    }
-}*/
+    return this->numPantalla;
+}

@@ -17,6 +17,8 @@ Dot::Dot(SDL_Surface *screen)
     //Initialize the offsets
     x = 325;
     y = 560;
+    this->isPunish = false;
+    this->timePunish = 0;
 
     angle = -45;
     velocity = 5;
@@ -80,6 +82,16 @@ void Dot::handle_input()
 
 void Dot::move()
 {
+    if (this->isPunish == true)
+        this->timePunish++;
+
+    if (this->timePunish == 300 && this->isPunish)
+    {
+        this->isPunish = false;
+        this->velocity = 5;
+        this->timePunish = 0;
+    }
+
     int temp;
     this->x += (cos (angle*PI/180) * velocity );
     this->y -= sin (angle*PI/180) * velocity;

@@ -29,6 +29,8 @@ class Dot
         float x, y;
         float angle, velocity;
         bool isMove;
+        bool isPunish;
+        int timePunish;
         int life;
         const float DOT_WIDTH = 20;
         const float DOT_HEIGHT = 20;

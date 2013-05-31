@@ -16,6 +16,7 @@ class Menu
         void logic();
         void render();
         bool init();
+        bool getActive();
         void setNumPantalla(int p);
         int getNumPantalla();
         virtual ~Menu();
@@ -23,6 +24,7 @@ class Menu
     private:
         int x;
         int numPantalla;
+        bool active;
         SDL_Surface *image[3];
         SDL_Surface *screen;
 };

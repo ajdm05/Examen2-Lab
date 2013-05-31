@@ -74,14 +74,8 @@ void BlockPunishDot::logic()
 
     if (this->life == 0)
     {
+        dot->isPunish = true;
         dot->velocity = 0;
-        this->life = -1;
-        this->time = 1;
-    }
-
-    if (this->time%301 == 0 )
-    {
-        dot->velocity = 5;
     }
 
 }

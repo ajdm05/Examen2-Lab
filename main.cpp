@@ -71,7 +71,6 @@ void clean_up()
 
 int main( int argc, char* args[] )
 {
-    //SDL_Surface *pantalla = load_image("Menu.png");
     //Quit flag
     bool quit = false;
 
@@ -85,11 +84,10 @@ int main( int argc, char* args[] )
     }
 
     Mix_Chunk *pantalla = Mix_LoadWAV( "pantalla.wav" );
-   // Menu menu(pantalla);
 
     //The dot that will be used
     Dot myDot(screen);
-    Mix_PlayChannel( -1, pantalla, 5 );
+
     list <Block*> block_list;
     //Images
     SDL_Surface *paddle_image = load_image("paddle.png");
@@ -171,7 +169,11 @@ int main( int argc, char* args[] )
     block_list.push_back(block30);
     block_list.push_back(block31);
     //Menu
-    /*bool quite = false;
+    Menu menu(screen);
+    menu.render();
+    SDL_Flip(screen);
+    Mix_PlayChannel( -1, pantalla, 5 );
+    bool quite = false;
     while( quite == false )
     {
         //If there's an event to handle
@@ -184,16 +186,107 @@ int main( int argc, char* args[] )
                 switch( event.key.keysym.sym )
                 {
                     case SDLK_ESCAPE: quite = true; break;
-                    case SDLK_1:
+                    case SDLK_0:
                         menu.setNumPantalla(0);
+                        menu.render();
+                        SDL_Flip(screen);
                         break;
+                    case SDLK_1:
+                        while( quit == false )
+                        {
+                                myDot.dotMoves();
+                                paddle->logic();
+                                paddle->control();
+
+                                if (block3->life <= 0 || block11->life <=0 || block23->life <=0
+                                    || block29->life <=0 || block30->life <=0 || block31->life <= 0)
+                                {
+                                    paddle->image = big_paddle_image;
+                                    paddle->width = 170;
+                                }
+
+                                //Start the frame timer
+                                fps.start();
+
+                                //While there's events to handle
+                                while( SDL_PollEvent( &event ) )
+                                {
+                                    //Handle events for the dot
+                                    myDot.handle_input();
+
+                                    //If the user has Xed out the window
+                                    if( event.type == SDL_QUIT )
+                                    {
+                                        //Quit the program
+                                        quit = true;
+                                    }
+                                }
+
+
+                                //Move the dot
+                                myDot.move();
+                                if (myDot.life <= 0)
+                                {
+                                    menu.setNumPantalla(1);
+                                    menu.render();
+                                    SDL_Flip(screen);
+                                    if( SDL_Flip( screen ) == -1 )
+                                    {
+                                        return 1;
+                                    }
+
+                                    SDL_Delay(2000);
+                                    break;
+                                }
+
+                                list<Block*>::iterator block_iterator = block_list.begin();
+                                while(block_iterator != block_list.end())
+                                {
+                                    Block* block_temp = *block_iterator;
+                                    block_temp->logic();
+                                    //((Block*)(*block_iterator))->logic();
+                                    if (block_temp->life <= 0)
+                                    {
+                                        block_list.erase(block_iterator);
+                                        block_iterator--;
+                                    }
+                                    block_iterator++;
+                                }
+
+                                //Fill the screen white
+                                SDL_FillRect( screen, &screen->clip_rect, SDL_MapRGB( screen->format, 0xFF, 0xFF, 0xFF ) );
+
+                                //Show the dot on the screen
+                                myDot.show();
+                                paddle->show();
+
+                                block_iterator = block_list.begin();
+                                while(block_iterator != block_list.end())
+                                {
+                                    Block* block_temp = *block_iterator;
+                                    block_temp->show();
+                                    block_iterator++;
+                                }
+
+                                //Update the screen
+                                if( SDL_Flip( screen ) == -1 )
+                                {
+                                    return 1;
+                                }
+
+                                //Cap the frame rate
+                                if( fps.get_ticks() < 1000 / FRAMES_PER_SECOND )
+                                {
+                                    SDL_Delay( ( 1000 / FRAMES_PER_SECOND ) - fps.get_ticks() );
+                                }
+                            }
+                            break;
                     case SDLK_2:
-                        menu.setNumPantalla(1);
+                        menu.setNumPantalla(2);
+                        menu.render();
+                        SDL_Flip(screen);
                         break;
                     case SDLK_3:
-                        menu.setNumPantalla(2);
-                        break;
-                    case SDLK_4:
                         quite = true;
                         break;
                 }
@@ -204,92 +297,111 @@ int main( int argc, char* args[] )
                 //Quit the program
                  quite = true;
             }
-        }*/
+        }
 
 
 
     //While the user hasn't quit
-    while( quit == false )
+   /* while( quit == false )
     {
-
-        myDot.dotMoves();
-        paddle->logic();
-        paddle->control();
-
-        if (block3->life <= 0 || block11->life <=0 || block23->life <=0
-            || block29->life <=0 || block30->life <=0 || block31->life <= 0)
+        if (menu.getActive())
         {
-            paddle->image = big_paddle_image;
-            paddle->width = 170;
-        }
+            menu.setNumPantalla(0);
+            menu.render();
+            SDL_Flip(screen);
+        } else {
+            myDot.dotMoves();
+            paddle->logic();
+            paddle->control();
 
-        //Start the frame timer
-        fps.start();
-
-        //While there's events to handle
-        while( SDL_PollEvent( &event ) )
-        {
-            //Handle events for the dot
-            myDot.handle_input();
-
-            //If the user has Xed out the window
-            if( event.type == SDL_QUIT )
+            if (block3->life <= 0 || block11->life <=0 || block23->life <=0
+                || block29->life <=0 || block30->life <=0 || block31->life <= 0)
             {
-                //Quit the program
-                quit = true;
+                paddle->image = big_paddle_image;
+                paddle->width = 170;
             }
-        }
-    //}
 
-        //Move the dot
-        myDot.move();
-        if (myDot.life <= 0)
-            quit = true;
+            //Start the frame timer
+            fps.start();
 
-        list<Block*>::iterator block_iterator = block_list.begin();
-        while(block_iterator != block_list.end())
-        {
-            Block* block_temp = *block_iterator;
-            block_temp->logic();
-            //((Block*)(*block_iterator))->logic();
-            if (block_temp->life <= 0)
+            //While there's events to handle
+            while( SDL_PollEvent( &event ) )
             {
-                block_list.erase(block_iterator);
-                block_iterator--;
+                //Handle events for the dot
+                myDot.handle_input();
+
+                //If the user has Xed out the window
+                if( event.type == SDL_QUIT )
+                {
+                    //Quit the program
+                    quit = true;
+                }
             }
-            block_iterator++;
-        }
+        //}
 
-        //Fill the screen white
-        SDL_FillRect( screen, &screen->clip_rect, SDL_MapRGB( screen->format, 0xFF, 0xFF, 0xFF ) );
+            //Move the dot
+            myDot.move();
+            if (myDot.life <= 0)
+            {
+                apply_surface( 490, 100, game_over, screen );
+                if( SDL_Flip( screen ) == -1 )
+                {
+                    return 1;
+                }
 
-        //Show the dot on the screen
-        myDot.show();
-        paddle->show();
+                SDL_Delay(2000);
+                break;
+            }
 
-        block_iterator = block_list.begin();
-        while(block_iterator != block_list.end())
-        {
-            Block* block_temp = *block_iterator;
-            block_temp->show();
-            block_iterator++;
-        }
 
-        //Update the screen
-        if( SDL_Flip( screen ) == -1 )
-        {
-            return 1;
-        }
+            list<Block*>::iterator block_iterator = block_list.begin();
+            while(block_iterator != block_list.end())
+            {
+                Block* block_temp = *block_iterator;
+                block_temp->logic();
+                //((Block*)(*block_iterator))->logic();
+                if (block_temp->life <= 0)
+                {
+                    block_list.erase(block_iterator);
+                    block_iterator--;
+                }
+                block_iterator++;
+            }
 
-        //Cap the frame rate
-        if( fps.get_ticks() < 1000 / FRAMES_PER_SECOND )
-        {
-            SDL_Delay( ( 1000 / FRAMES_PER_SECOND ) - fps.get_ticks() );
-        }
+            //Fill the screen white
+            SDL_FillRect( screen, &screen->clip_rect, SDL_MapRGB( screen->format, 0xFF, 0xFF, 0xFF ) );
+
+            //Show the dot on the screen
+            myDot.show();
+            paddle->show();
+
+            block_iterator = block_list.begin();
+            while(block_iterator != block_list.end())
+            {
+                Block* block_temp = *block_iterator;
+                block_temp->show();
+                block_iterator++;
+            }
+
+            //Update the screen
+            if( SDL_Flip( screen ) == -1 )
+            {
+                return 1;
+            }
+
+            //Cap the frame rate
+            if( fps.get_ticks() < 1000 / FRAMES_PER_SECOND )
+            {
+                SDL_Delay( ( 1000 / FRAMES_PER_SECOND ) - fps.get_ticks() );
+            }
+        }*/
     }
 
     //Clean up
     clean_up();
 
     return 0;
+
+
+
 }

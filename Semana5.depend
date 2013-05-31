@@ -177,7 +177,7 @@
 1368470394 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\semana5\timer.h
 	"SDL.h"
 
-1369804450 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\semana5\dot.h
+1369988869 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\semana5\dot.h
 	<cmath>
 	"Utility.h"
 	"Particle.h"
@@ -190,10 +190,10 @@
 	<string>
 	<cstdlib>
 
-1369806808 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\semana5\dot.cpp
+1369988868 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\semana5\dot.cpp
 	"Dot.h"
 
-1369805807 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\semana5\main.cpp
+1369988012 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\semana5\main.cpp
 	"Utility.h"
 	"SDL.h"
 	"SDL_image.h"
@@ -252,20 +252,20 @@
 1369780868 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\semana5\blockbigpaddle.h
 	"block.h"
 
-1369806089 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\semana5\blockpunishdot.cpp
+1369989080 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\semana5\blockpunishdot.cpp
 	"BlockPunishDot.h"
 
 1369781515 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\semana5\blockpunishdot.h
 	"block.h"
 
-1369795477 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\semana5\menu.h
+1369987676 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\semana5\menu.h
 	"SDL.h"
 	"SDL_image.h"
 	<string>
 	"SDL_mixer.h"
 	"SDL_ttf.h"
 
-1369797904 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\semana5\menu.cpp
+1369987650 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\semana5\menu.cpp
 	"Menu.h"
 	<string>
 
@@ -274,4 +274,120 @@
 
 1369805596 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\semana5\blockfast.h
 	"block.h"
+
+1369779165 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\block.cpp
+	"block.h"
+
+1369420452 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\block.h
+	"SDL.h"
+	"SDL_image.h"
+	"Utility.h"
+	"Dot.h"
+
+1369797154 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\utility.h
+	"SDL.h"
+	"SDL_image.h"
+	"Timer.h"
+	<string>
+
+1368470394 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\timer.h
+	"SDL.h"
+
+1369804450 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\dot.h
+	<cmath>
+	"Utility.h"
+	"Particle.h"
+	<iostream>
+
+1368470394 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\particle.h
+	"SDL.h"
+	"SDL_image.h"
+	"Utility.h"
+	<string>
+	<cstdlib>
+
+1369802123 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\blockbigpaddle.cpp
+	"BlockBigPaddle.h"
+
+1369780868 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\blockbigpaddle.h
+	"block.h"
+
+1369805576 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\blockfast.cpp
+	"BlockFast.h"
+
+1369805596 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\blockfast.h
+	"block.h"
+
+1369770653 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\blocknormal.cpp
+	"BlockNormal.h"
+
+1369415388 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\blocknormal.h
+	"block.h"
+
+1369806089 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\blockpunishdot.cpp
+	"BlockPunishDot.h"
+
+1369781515 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\blockpunishdot.h
+	"block.h"
+
+1369802347 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\blockslow.cpp
+	"BlockSlow.h"
+
+1369769462 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\blockslow.h
+	"block.h"
+
+1369806808 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\dot.cpp
+	"Dot.h"
+
+1369805807 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\main.cpp
+	"Utility.h"
+	"SDL.h"
+	"SDL_image.h"
+	"Timer.h"
+	"Particle.h"
+	"Dot.h"
+	<string>
+	<cstdlib>
+	"block.h"
+	<list>
+	"BlockSlow.h"
+	"BlockNormal.h"
+	"Paddle.h"
+	"BlockBigPaddle.h"
+	"SuperBlock.h"
+	"BlockPunishDot.h"
+	"Menu.h"
+	"BlockFast.h"
+
+1369777325 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\paddle.h
+	"block.h"
+
+1369780402 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\superblock.h
+	"block.h"
+
+1369795477 c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\menu.h
+	"SDL.h"
+	"SDL_image.h"
+	<string>
+	"SDL_mixer.h"
+	"SDL_ttf.h"
+
+1369797904 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\menu.cpp
+	"Menu.h"
+	<string>
+
+1369782482 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\paddle.cpp
+	"Paddle.h"
+
+1368470394 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\particle.cpp
+	"Particle.h"
+
+1369780500 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\superblock.cpp
+	"SuperBlock.h"
+
+1368470394 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\timer.cpp
+	"Timer.h"
+
+1369797508 source:c:\users\owner\desktop\escritorio\u\2013\ii periodo\labprograiii\examen2-lab\utility.cpp
+	"Utility.h"
 

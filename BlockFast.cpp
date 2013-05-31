@@ -73,7 +73,7 @@ void BlockFast::logic()
 
         if (this->life <=0)
         {
-            dot->velocity*=2;
+            dot->velocity+=2;
         }
 
     }
